@@ -24,10 +24,18 @@
 
 
 import * as React from "react";
-import { Admin } from 'react-admin';
+import {Resource, Admin } from 'react-admin';
 import jsonServerProvider from 'ra-data-json-server';
 
+//import { CommandList, CommandCreate, CommandEdit, CommandShow, CommandIcon } from './commands';
+import { CommandList } from './commands';
+
 const dataProvider = jsonServerProvider('https://jsonplaceholder.typicode.com');
-const App = () => <Admin dataProvider={dataProvider} />;
+console.log(dataProvider)
+const App = () => (<Admin dataProvider={dataProvider} >
+  {/* <Resource name="commands" options={{ label: 'Commands' }} list={CommandList} create={CommandCreate} edit={CommandEdit} show={CommandShow} icon={CommandIcon} /> */}
+  <Resource name="users" list={CommandList} />
+</Admin>
+);
 
 export default App;
